@@ -1,0 +1,38 @@
+/* Floating Social Icons */
+.social-icons {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Hover Effects */
+  .social-icons a:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.4);
+  }
+  
+  /* Unique Colors for Each Icon */
+  .social-icons a.linkedin { background-color: #0077b5; }
+  .social-icons a.instagram { background-color: #E4405F; }
+  .social-icons a.github { background-color: #333; }
+  .social-icons a.resume { background-color: #28a745; }
+  

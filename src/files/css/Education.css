@@ -1,0 +1,23 @@
+/* Education Section Styling */
+#education {
+    padding: 50px 0;
+  }
+  
+  .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  /* Hover Animation */
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Unique Animation on Click */
+  .card:active {
+    transform: scale(0.98);
+    box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.5);
+  }
+  
