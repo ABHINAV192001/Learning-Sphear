@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from './UserContext';
+import './css/SignUp.css'; // Importing external CSS
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState('');
@@ -8,10 +9,11 @@ export default function SignUp() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const { users, setUsers } = useContext(UserContext);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     const newUser = { firstName, lastName, username, email, password };
     setUsers([...users, newUser]);
 
@@ -21,37 +23,70 @@ export default function SignUp() {
     setEmail('');
     setPassword('');
 
-    console.log('User added:', newUser);
+    alert(`🎉 Account created successfully!\nEmail: ${email}\nPassword: ${password}`);
   };
 
   return (
-    <div className="container text-center py-5" id="Login">
-      <br /><br /><br />
-      <div id='container'>
-        <label htmlFor="firstName">First Name :- </label><br />
-        <input type="text" id='firstName' placeholder='Enter The First Name' value={firstName}
-          onChange={(e) => setFirstName(e.target.value)} /><br /><br />
+    <div className="signup-container">
 
-        <label htmlFor="lastName">Last Name :- </label><br />
-        <input type="text" id='lastName' placeholder='Enter The Last Name' value={lastName}
-          onChange={(e) => setLastName(e.target.value)} /><br /><br />
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <h2>✨ Create Your Account</h2>
 
-        <label htmlFor="username">Enter the Username :- </label><br />
-        <input type="text" id='username' placeholder='Enter The Username' value={username}
-          onChange={(e) => setUsername(e.target.value)} /><br /><br />
+        <label htmlFor="firstName">First Name</label>
+        <input
+          id="firstName"
+          type="text"
+          placeholder="Enter your first name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
 
-        <label htmlFor="email">Email :- </label><br />
-        <input type="email" id='email' placeholder='Enter The Email' value={email}
-          onChange={(e) => setEmail(e.target.value)} /><br /><br />
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          id="lastName"
+          type="text"
+          placeholder="Enter your last name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
 
-        <label htmlFor="password">Enter the Password :- </label><br />
-        <input type="password" id='password' placeholder='Enter The Password' value={password}
-          onChange={(e) => setPassword(e.target.value)} /><br /><br />
+        <label htmlFor="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="Choose a username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
 
-        <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
-        <br /><br />
-        <Link to="/login">Login</Link>
-      </div>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Create a password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button type="submit">Sign Up</button>
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </form>
     </div>
   );
 }
