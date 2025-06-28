@@ -23,7 +23,7 @@ export default function Login() {
             if (userFound) {
                 const b = Math.floor(100000 + Math.random() * 900000);;
                 sendMail();
-                const a = prompt(`Enter the OTP here:- `);
+                const a = prompt(`Enter the OTP here:- ${b} `);
                 if (a == b) {
                     setMessage(`Welcome, ${userFound.username || userFound.firstName}!`);
                     
